@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+	  <div class="col-sm-6 col-sm-offset-3">
+	   <h1><%= @product.new_record? ? "Create": "Edit" %> Product</h1>	
+	     <%= form_for @product do |f|  %>
+	   		<div class="form-group">
+	   			<%= f.text_field :name, class: "form-control input-lg", placeholder: "Enter name of product"  %>
+	   		</div>
+	   		<div class="form-group">
+	   			<%= f.url_field :url, class: "form-control input-lg", placeholder: "Enter product url"  %>
+	   		</div>
+	   		<div class="form-control">
+	   			<%= f.text_area :description, class: "form-control input-lg", placeholder: "Enter Product Description"  %>
+	   		</div>
+	   		<div class="form-control">
+	   			<%= f.submit @product.new_record? ? "Create Product" : "Edit product", class: "btn btn-primary btn-lg btn-block"  %>
+	   		</div>
+	   	  <% end %>
+	  </div>
+	</div>
+</div>
