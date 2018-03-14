@@ -3,19 +3,23 @@
     <div class="col-sm-12">
           <h1>Products</h1>
           <div class="text-right">
-            <%= link_to "Post product", new_product_path, class: "btn btn-primary" %> 
+            <%= link_to "Post product", new_product_path, class: "btn btn-primary" %>
           </div>            
           <table class="table">
            <tr>
              <th>Name</th>
              <th>Url</th>
              <th>Description</th>
+             <th></th>
+             <th></th>
            </tr>
             <% @products.each do |product| %>
               <tr>
-               <td><%= product.name %></td>
+               <td><%= link_to product.name, product %></td>
                <td><%= product.url  %></td>
                <td><%= product.description %></td>
+               <td><%= link_to "Edit", edit_product_path(product)%></td>
+               <td><%= link_to "Delete", product, method: :delete, data:{confirm: "¿Are you sure to delete this product?"} %></td>
               </tr> 
             <% end %>
          </table>
