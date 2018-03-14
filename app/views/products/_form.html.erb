@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 	  <div class="col-sm-6 col-sm-offset-3">
-	   <h1><%= @product.new_record? ? "Create": "Edit" %> Product</h1>	
+	   <h1><%= form_title %></h1>	
 	     <%= form_for @product do |f|  %>
 	   		<div class="form-group">
 	   			<%= f.text_field :name, class: "form-control input-lg", placeholder: "Enter name of product"  %>
