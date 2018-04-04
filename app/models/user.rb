@@ -12,6 +12,10 @@
 #
 
 class User < ApplicationRecord
+	has_many :products
+	has_many :votes
+
+	
 	has_secure_password validations: false
 	validates :email, uniqueness: true, format: /@/
 	validates :password, presence: true, on: :create

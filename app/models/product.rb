@@ -13,7 +13,12 @@
 
 class Product < ApplicationRecord
   belongs_to :user
+  has_many :votes
 
   validates :name, presence: true
   validates :url, presence: true
+
+  def voted_by?(user)
+  	votes.exists?(user: user)
+  end
 end
