@@ -1,33 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-          <h1>Products</h1>
-          <% if signed_in? %>
-          <div class="text-right">
-            <%= link_to "Post product", new_product_path, class: "btn btn-primary" %>
-          </div>          
-          <% end %>
-
-          <table class="table">
-           <tr>
-             <th>Name</th>
-             <th>Url</th>
-             <th>Description</th>
-             <th></th>
-             <th></th>
-           </tr>
-            <% @products.each do |product| %>
-              <tr>
-               <td><%= link_to product.name, product %></td>
-               <td><%= product.url  %></td>
-               <td><%= product.description %></td>
-               <% if signed_in? %>
-                <td><%= link_to "Edit", edit_product_path(product)%></td>
-                <td><%= link_to "Delete", product, method: :delete, data:{confirm: "¿Are you sure to delete this product?"} %></td>
-                <% end %>
-              </tr> 
-            <% end %>
-         </table>
+    <div class="col-sm-10 col-sm-offset-1">
+      
+      <div class="products">
+        <%  @products.each do |product| %>
+          <div class="product clearfix">
+            <div class="product-details">
+              <span class="product-title"><%= link_to product.name, product %></span>
+              <span class="product-description"><%= product.description  %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
